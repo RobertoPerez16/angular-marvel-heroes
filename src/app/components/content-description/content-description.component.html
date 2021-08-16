@@ -1,4 +1,4 @@
-<a routerLink="/character-detail/{{ hero.id }}" *ngIf="hero" class="link">
+<a routerLink="/character-detail/{{ hero.id }}" (click)="moveTop()" *ngIf="hero" class="link">
     <div class="hero-card">
         <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}"
              class="hero-image"

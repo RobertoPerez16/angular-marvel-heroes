@@ -14,4 +14,8 @@ export class ContentDescriptionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  moveTop () {
+      window.scroll(0,0)
+  }
+
 }
