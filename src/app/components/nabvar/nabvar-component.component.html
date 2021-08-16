@@ -1,0 +1,29 @@
+<nav class="menu">
+    <div class="menu-logo">
+        <a routerLink="/" (click)="resetState()">
+            <img src="../../../assets/marvel-logo.png" class="logo" alt="logo">
+        </a>
+    </div>
+
+    <ul class="menu-content">
+        <li class="menu-item" *ngFor="let item of menu">
+            <a *ngIf="item.name === 'Cómics'; else nav"
+               (click)="resetState()"
+               routerLink="{{ item.route }}"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: item.exact }"
+               class="menu-link">
+                {{ item.name }}
+            </a>
+
+            <ng-template #nav>
+                <a routerLink="{{ item.route }}"
+                   routerLinkActive="active"
+                   [routerLinkActiveOptions]="{ exact: item.exact }"
+                   class="menu-link">
+                    {{ item.name }}
+                </a>
+            </ng-template>
+        </li>
+    </ul>
+</nav>

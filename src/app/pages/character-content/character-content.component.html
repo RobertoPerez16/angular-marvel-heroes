@@ -1,0 +1,16 @@
+<app-spinner *ngIf="loading"></app-spinner>
+
+<div class="hero-container" *ngIf="!loading">
+    <div *ngFor="let hero of heroes | paginate: { itemsPerPage: 20, currentPage: page, totalItems: totalPages };"
+         class="hero-content">
+       <app-content-description [hero]="hero"></app-content-description>
+    </div>
+</div>
+
+<div class="pagination">
+    <pagination-controls previousLabel="Atrás"
+                         nextLabel="Siguiente"
+                         [maxSize]="22"
+                         (pageChange)="changePage($event)">
+    </pagination-controls>
+</div>

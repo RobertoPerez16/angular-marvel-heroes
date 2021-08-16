@@ -1,0 +1,20 @@
+<div class="banner-comic">
+    <img src="../../../assets/header-comic.jpg" alt="banner-comic" />
+</div>
+
+<div class="comic-search">
+    <h2>BUSCA TU CÓMIC FAVORITO</h2>
+    <form method="get">
+        <input type="text"
+               placeholder="Escribe el nombre del cómic"
+               (keyup)="getTitle($event)"
+               class="input-search">
+    </form>
+</div>
+
+<div class="hero-container" *ngIf="comics.length > 0">
+    <div *ngFor="let comic of comics"
+         class="hero-content">
+        <app-content-description [comic]="comic"></app-content-description>
+    </div>
+</div>

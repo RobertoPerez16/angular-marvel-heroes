@@ -1,0 +1,15 @@
+<a routerLink="/character-detail/{{ hero.id }}" *ngIf="hero" class="link">
+    <div class="hero-card">
+        <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}"
+             class="hero-image"
+             [alt]="hero.name">
+        <p class="hero-info">{{ hero.name ? hero.name : hero.title }}</p>
+    </div>
+</a>
+
+<div class="hero-card" *ngIf="comic">
+    <img src="{{ comic.thumbnail.path }}.{{ comic.thumbnail.extension }}"
+         class="hero-image"
+         [alt]="comic.name">
+    <p class="hero-info">{{ comic.title }}</p>
+</div>

@@ -1,0 +1,36 @@
+<app-spinner *ngIf="loading"></app-spinner>
+
+<div class="hero-detail" *ngIf="!loading">
+    <div class="hero-detail-content">
+        <div class="hero-detail-image">
+            <img src="{{ heroInfo.thumbnail.path }}.{{ heroInfo.thumbnail.extension }}"
+                 [alt]="heroInfo.name">
+        </div>
+
+        <div class="hero-detail-info">
+            <div class="hero-detail-info-content">
+                <h1 class="hero-name">{{ heroInfo.name }}</h1>
+                <p *ngIf="heroInfo.description" class="hero-description">
+                    {{ heroInfo.description }}
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="comics-content">
+        <h3>Cómics:</h3>
+        <div class="hero-comics" *ngIf="heroInfo.comics.items.length > 0; else noComics">
+            <div *ngFor="let comic of heroInfo.comics.items">
+                <p>{{ comic.name }}`</p>
+            </div>
+        </div>
+
+        <ng-template #noComics>
+            <p>Este personaje no tiene asignado comics </p>
+        </ng-template>
+    </div>
+
+</div>
+
+
